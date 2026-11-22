@@ -199,11 +199,31 @@ dialog.nav p { margin-top:18px; font:13px var(--mono); color:#9aa; line-height:1
 
 <section class="slide foto contain claro" data-title="Horizonte temporal METR"><img src="img/horizon-nov-2026.jpg" alt="Duración de las tareas que distintos modelos de IA completan el 80 % de las veces"></section>
 
-<!-- ============ PARTE 2 · TALLER ============ -->
-<section class="slide chapter" data-mark="1" data-chapter="Una pregunta, seis documentos"><div class="inner">
-  <div class="kicker">El taller</div>
-  <div class="gigante">Una pregunta.<br><strong>Seis documentos.</strong></div>
-  <div class="sub">Los materiales que ha preparado Roche. Los mismos para todos. De la búsqueda al paciente.</div>
+<section class="slide steps" data-chapter="Tres partes"><div class="inner">
+  <div class="kicker">Esta tarde</div>
+  <ul class="lista">
+    <li class="step"><span class="n">PARTE I</span>Investigación: de la pregunta al borrador.<span class="meta">Y al final, un agente que lo hace todo de una vez.</span></li>
+    <li class="step"><span class="n">PARTE II</span>Diagnóstico: un caso con un modelo de frontera.</li>
+    <li class="step"><span class="n">PARTE III</span>Ofimática, presentaciones y avatares.</li>
+  </ul>
+</div></section>
+
+<!-- ============ PARTE I · INVESTIGACIÓN ============ -->
+<section class="slide chapter" data-mark="I" data-chapter="Parte I · Investigación"><div class="inner">
+  <div class="kicker">Parte I · Investigación</div>
+  <div class="gigante">Hagamos<br><strong>un paper.</strong></div>
+  <div class="sub">Una pregunta, muchas herramientas. Ninguna lo hace todo bien: se recoge de varias y se consolida.</div>
+</div></section>
+
+<section class="slide steps"><div class="inner">
+  <div class="kicker">Investigación distribuida · el mapa</div>
+  <ul class="lista compact">
+    <li class="step"><span class="n">01</span>Búsqueda general<span class="meta">Google modo IA · Perplexity</span></li>
+    <li class="step"><span class="n">02</span>Evidencia<span class="meta">OpenEvidence · Consensus · Elicit · Claude con PubMed</span></li>
+    <li class="step"><span class="n">03</span>Exploración y biblioteca<span class="meta">Litmaps · Zotero · NotebookLM</span></li>
+    <li class="step"><span class="n">04</span>Consolidación y redacción<span class="meta">Deep Research · ChatGPT o Claude dentro de Word</span></li>
+    <li class="step"><span class="n">05</span>Verificación<span class="meta">Cada cita existe y dice lo que afirmas</span></li>
+  </ul>
 </div></section>
 
 <section class="slide"><div class="inner">
@@ -217,103 +237,191 @@ dialog.nav p { margin-top:18px; font:13px var(--mono); color:#9aa; line-height:1
   </div>
 </div></section>
 
-<section class="slide steps" data-chapter="Mapa de prácticas"><div class="inner">
-  <div class="kicker">El mapa</div>
-  <ul class="lista compact agenda">
-    <li class="step"><span class="n">01</span>Buscar como ya no se busca<span class="min">10 min</span></li>
-    <li class="step"><span class="n">02</span>Evidencia que se puede citar<span class="min">15 min</span></li>
-    <li class="step"><span class="n">03</span>Conversar con tus documentos<span class="min">20 min</span></li>
-    <li class="step"><span class="n">04</span>Que te lleve la contraria<span class="min">15 min</span></li>
-    <li class="step"><span class="n">05</span>Del póster al paciente<span class="min">15 min</span></li>
-    <li class="step"><span class="n">06</span>El dato no sale del hospital<span class="min">15 min</span></li>
-    <li class="step"><span class="n">07</span>Pide el código, no el resultado<span class="min">15 min</span></li>
-    <li class="step"><span class="n">08</span>Lo que explicas una vez, guárdalo<span class="min">10 min</span></li>
-  </ul>
-</div></section>
-
-<!-- Práctica 1 -->
-<section class="slide demo steps" data-mark="1" data-chapter="P1 · Buscar"><div class="inner">
-  <div class="num">Práctica 1 · Búsqueda general<span class="t">10 MIN</span></div>
+<section class="slide demo steps" data-mark="1"><div class="inner">
+  <div class="num">Parte I · Búsqueda general<span class="t">PASO 01</span></div>
   <div class="statement">Lanza la misma pregunta, <strong>con las mismas palabras</strong>, a dos buscadores.</div>
   <div class="tools"><span>Google · modo IA</span><span>Perplexity</span><span>ChatGPT · búsqueda</span></div>
   <div class="prompt step"><button class="copy" type="button">COPIAR</button>En pacientes con cáncer de pulmón de célula pequeña en estadio extendido, ¿qué proporción sigue viva a 3, 5 y 7 años con atezolizumab más carboplatino y etopósido en primera línea, frente a quimioterapia sola? ¿Qué características tienen los largos supervivientes? Cita las fuentes.</div>
   <div class="watch step"><b>FÍJATE</b>¿Dan la misma cifra a 5 años? Apunta las dos. Sirven para el mapa, no para citar.</div>
 </div></section>
 
-<!-- Práctica 2 -->
-<section class="slide demo steps" data-mark="2" data-chapter="P2 · Evidencia"><div class="inner">
-  <div class="num">Práctica 2 · Búsqueda de evidencia<span class="t">15 MIN</span></div>
-  <div class="statement">La misma pregunta, ahora a herramientas que <strong>solo responden con artículos</strong>.</div>
+<section class="slide demo steps" data-mark="2"><div class="inner">
+  <div class="num">Parte I · Evidencia<span class="t">PASO 02</span></div>
+  <div class="statement">La misma pregunta, a herramientas que <strong>solo responden con artículos</strong>.</div>
   <div class="tools"><span>OpenEvidence</span><span>Consensus</span><span>Elicit</span><span>Claude + conector PubMed</span></div>
-  <div class="prompt step"><button class="copy" type="button">COPIAR</button>[Pega la pregunta de la práctica 1] Gradúa la fuerza de la evidencia de cada afirmación, distingue ensayo aleatorizado, análisis exploratorio y extensión de seguimiento, y enlaza cada cifra a su artículo.</div>
-  <div class="watch step"><b>FÍJATE</b>Las herramientas de evidencia matizan. ¿Cuál es más prudente? ¿Coincide alguna cifra con la práctica 1?</div>
+  <div class="prompt step"><button class="copy" type="button">COPIAR</button>[Pega la pregunta anterior] Gradúa la fuerza de la evidencia de cada afirmación, distingue ensayo aleatorizado, análisis exploratorio y extensión de seguimiento, y enlaza cada cifra a su artículo.</div>
+  <div class="watch step"><b>FÍJATE</b>Las herramientas de evidencia matizan. ¿Cuál es más prudente? Deja Elicit trabajando en modo profundo: lo recogemos luego.</div>
 </div></section>
 
-<!-- Práctica 3 -->
-<section class="slide demo steps" data-mark="3" data-chapter="P3 · Tus documentos"><div class="inner">
-  <div class="num">Práctica 3 · Conversar con tus documentos<span class="t">20 MIN</span></div>
-  <div class="statement">Sube los documentos 02 a 06. Pide una tabla <strong>que puedas auditar</strong>.</div>
+<section class="slide demo steps" data-mark="3"><div class="inner">
+  <div class="num">Parte I · Exploración<span class="t">PASO 03</span></div>
+  <div class="statement">Parte de un artículo semilla y <strong>sigue la red de citas</strong>.</div>
+  <div class="tools"><span>Litmaps</span><span>Zotero</span></div>
+  <div class="prompt step"><button class="copy" type="button">COPIAR</button>Horn L, et al. First-Line Atezolizumab plus Chemotherapy in Extensive-Stage Small-Cell Lung Cancer. N Engl J Med. 2018. DOI: 10.1056/NEJMoa1809064</div>
+  <div class="watch step"><b>FÍJATE</b>A la derecha, lo más reciente; arriba, lo más citado. ¿Aparecen los documentos de Roche? Lo que te convenza, a Zotero.</div>
+</div></section>
+
+<section class="slide demo steps" data-mark="4"><div class="inner">
+  <div class="num">Parte I · Biblioteca<span class="t">PASO 03</span></div>
+  <div class="statement">Sube los PDF de Roche. Pide una tabla <strong>que puedas auditar</strong>.</div>
   <div class="tools"><span>NotebookLM</span><span>Claude · Proyecto</span><span>ChatGPT · Proyecto</span><span>Copilot</span></div>
   <div class="prompt step"><button class="copy" type="button">COPIAR</button>Usa solo los documentos cargados. Construye una tabla con: estudio, diseño, n, población, brazos, SG mediana, SG a 3, 5 y 7 años, y la página o diapositiva exacta de cada dato. Si un dato no aparece, escribe «no consta». Después, dime en qué se contradicen los documentos.</div>
   <div class="watch step"><b>FÍJATE</b>Elige dos cifras al azar y búscalas tú en el PDF. Si no están donde dice, no está bien.</div>
 </div></section>
 
-<!-- Práctica 4 -->
-<section class="slide demo steps" data-mark="4" data-chapter="P4 · La contraria"><div class="inner">
-  <div class="num">Práctica 4 · Razonamiento · documento 01<span class="t">15 MIN</span></div>
+<section class="slide demo steps" data-mark="5"><div class="inner">
+  <div class="num">Parte I · Lectura crítica<span class="t">PASO 03</span></div>
   <div class="statement">No pidas un resumen.<br><strong>Pide que te lleve la contraria.</strong></div>
-  <div class="tools"><span>Claude · razonamiento extendido</span><span>ChatGPT · modelo de razonamiento</span><span>Gemini</span></div>
+  <div class="tools"><span>Claude · razonamiento extendido</span><span>ChatGPT · razonamiento</span><span>Gemini</span></div>
   <div class="prompt step"><button class="copy" type="button">COPIAR</button>Eres el discussant más exigente de ESMO. Con esta presentación de Krascendo 1: 1) las cinco debilidades metodológicas más serias, de mayor a menor; 2) las tres preguntas que harías desde el micrófono; 3) qué dato falta para cambiar la práctica clínica. Sé concreto y cita la diapositiva.</div>
   <div class="watch step"><b>FÍJATE</b>¿Habrías visto tú esas debilidades? ¿Hay alguna injusta? Discutirlo es el ejercicio.</div>
 </div></section>
 
-<!-- Práctica 5 -->
-<section class="slide demo steps" data-mark="5" data-chapter="P5 · Al paciente"><div class="inner">
-  <div class="num">Práctica 5 · Difusión · documento 06<span class="t">15 MIN</span></div>
-  <div class="statement">Del póster a la sesión clínica, <strong>y a la familia del paciente</strong>.</div>
-  <div class="tools"><span>Claude / ChatGPT</span><span>Napkin · infografía</span><span>NotebookLM · resumen en audio</span><span>Gamma · diapositivas</span></div>
-  <div class="prompt step"><button class="copy" type="button">COPIAR</button>Convierte este póster en: a) un texto de 150 palabras para un paciente y su familia, con nivel de lectura de 12 años, en castellano y en catalán; b) un guion de 2 minutos para la sesión del servicio; c) tres mensajes clave que no exageren el dato. Marca cualquier frase que pueda sonar a promesa.</div>
-  <div class="watch step"><b>FÍJATE</b>¿Promete más de lo que dice el dato? Estar vivo a 7 años no es estar curado.</div>
+<section class="slide demo steps" data-mark="6"><div class="inner">
+  <div class="num">Parte I · Consolidación<span class="t">PASO 04</span></div>
+  <div class="statement">Deep Research no solo investiga.<br><strong>También consolida lo que ya tienes.</strong></div>
+  <div class="tools"><span>ChatGPT · investigación avanzada</span><span>Claude · Research</span><span>Gemini · Deep Research</span></div>
+  <div class="prompt step"><button class="copy" type="button">COPIAR</button>Te adjunto todo lo que he recopilado sobre esta pregunta: [pregunta]. Ayúdame a consolidarlo en un informe integrado. Contrasta las cifras que no coinciden entre fuentes, di cuál es la fuente primaria de cada una y señala qué afirmaciones no tienen respaldo en un artículo.</div>
+  <div class="watch step"><b>FÍJATE</b>Puede tardar de 5 minutos a varias horas. Revisarlo te llevará más que generarlo.</div>
 </div></section>
 
-<!-- Práctica 6 -->
-<section class="slide demo steps" data-mark="6" data-chapter="P6 · Anonimizar"><div class="inner">
-  <div class="num">Práctica 6 · Datos de pacientes<span class="t">15 MIN</span></div>
+<section class="slide demo steps" data-mark="7"><div class="inner">
+  <div class="num">Parte I · Redacción<span class="t">PASO 04</span></div>
+  <div class="statement">Redacta donde escribes:<br><strong>la IA dentro de Word.</strong></div>
+  <div class="tools"><span>ChatGPT en Word</span><span>Claude en Word</span><span>Copilot en Word</span></div>
+  <div class="prompt step"><button class="copy" type="button">COPIAR</button>Con los documentos adjuntos, redacta en inglés el borrador de una revisión narrativa para Clinical and Translational Oncology, siguiendo sus normas para autores: resumen, puntos clave, tabla de evidencia, referencias con DOI y declaración de uso de IA. Deja entre corchetes lo que solo pueden rellenar los autores.</div>
+  <div class="watch step"><b>FÍJATE</b>Escribe sobre el documento para que lo coedites. Es un borrador, no un artículo.</div>
+</div></section>
+
+<section class="slide demo steps" data-mark="8"><div class="inner">
+  <div class="num">Parte I · Verificación<span class="t">PASO 05</span></div>
+  <div class="statement">Cada cita existe<br><strong>y dice lo que afirmas.</strong></div>
+  <div class="tools"><span>Claude + conector PubMed</span><span>Scite</span><span>Zotero</span></div>
+  <div class="prompt step"><button class="copy" type="button">COPIAR</button>Revisa este borrador referencia por referencia. Para cada una: comprueba que el DOI existe, que la cifra citada aparece en el artículo y en qué página, y dame una tabla con: afirmación, referencia, ¿lo dice?, página. Marca en rojo lo que no puedas comprobar.</div>
+  <div class="watch step"><b>FÍJATE</b>El cuello de botella ya no es producir. Es comprobar. Este paso es tuyo.</div>
+</div></section>
+
+<section class="slide demo steps" data-mark="9"><div class="inner">
+  <div class="num">Parte I · Datos de pacientes<span class="t">DATOS</span></div>
   <div class="statement">El dato no sale del hospital.<br><strong>Sale solo la estructura.</strong></div>
   <div class="tools"><span>Claude · artefactos</span><span>ChatGPT · Canvas</span></div>
   <div class="prompt step"><button class="copy" type="button">COPIAR</button>Te paso solo las cabeceras de mi Excel: NHC, nombre, fecha_nacimiento, fecha_diagnostico, estadio, linea_tratamiento, fecha_progresion, fecha_ultimo_contacto, exitus. Prográmame un único fichero HTML que funcione sin conexión, lea el Excel en el navegador, sustituya los identificadores por códigos, convierta las fechas en días desde el diagnóstico y genere aparte una clave de reversión.</div>
   <div class="watch step"><b>FÍJATE</b>Claude solo ha visto las cabeceras. El Excel real lo abres tú, en tu ordenador, sin conexión.</div>
 </div></section>
 
-<!-- Práctica 7 -->
-<section class="slide demo steps" data-mark="7" data-chapter="P7 · Código"><div class="inner">
-  <div class="num">Práctica 7 · Análisis<span class="t">15 MIN</span></div>
+<section class="slide demo steps" data-mark="10"><div class="inner">
+  <div class="num">Parte I · Análisis<span class="t">DATOS</span></div>
   <div class="statement">Pide el código, <strong>no el resultado</strong>.</div>
   <div class="tools"><span>Claude</span><span>ChatGPT</span><span>R / Python</span></div>
-  <div class="prompt step"><button class="copy" type="button">COPIAR</button>Genera un dataset sintético de 200 pacientes con CPCP en estadio extendido con las columnas anonimizadas de la práctica 6. Después escribe el código en R para la curva de Kaplan-Meier, la SG mediana con IC 95 % y la proporción viva a 3, 5 y 7 años. Comenta cada línea para que lo entienda un clínico.</div>
+  <div class="prompt step"><button class="copy" type="button">COPIAR</button>Genera un dataset sintético de 200 pacientes con CPCP en estadio extendido con las columnas anonimizadas del paso anterior. Después escribe el código en R para la curva de Kaplan-Meier, la SG mediana con IC 95 % y la proporción viva a 3, 5 y 7 años. Comenta cada línea para que lo entienda un clínico.</div>
   <div class="watch step"><b>FÍJATE</b>Mismo código, mismo dato, mismo resultado. Eso se puede declarar en el artículo.</div>
 </div></section>
 
-<!-- Práctica 8 -->
-<section class="slide demo steps" data-mark="8" data-chapter="P8 · Skill"><div class="inner">
-  <div class="num">Práctica 8 · Skills<span class="t">10 MIN</span></div>
+<section class="slide demo steps" data-mark="11"><div class="inner">
+  <div class="num">Parte I · Skills<span class="t">MÉTODO</span></div>
   <div class="statement">Lo que explicas una vez,<br><strong>no lo repitas.</strong></div>
   <div class="tools"><span>Claude · Skills</span><span>ChatGPT · GPTs</span><span>Copilot · agentes</span></div>
   <div class="prompt step"><button class="copy" type="button">COPIAR</button>Quiero crear una skill. Te voy a explicar cómo leo yo un ensayo de oncología torácica: qué miro primero, qué me hace desconfiar y cómo resumo para mi servicio. Hazme las preguntas que necesites, una a una. Al final, redáctalo como instrucciones reutilizables y guárdalo como skill.</div>
-  <div class="watch step"><b>FÍJATE</b>Una skill es un prompt largo que no quieres repetir. Pruébala con el documento 03.</div>
+  <div class="watch step"><b>FÍJATE</b>Una skill es un prompt largo que no quieres repetir. El agente que viene ahora la puede usar.</div>
 </div></section>
 
-<!-- Extra -->
-<section class="slide demo steps" data-mark="+" data-chapter="Extra · Agente"><div class="inner">
-  <div class="num">Extra · si sobra tiempo · agente con navegador<span class="t">DEMO</span></div>
-  <div class="statement">Nadie toca el ratón.<br><strong>Mira cómo se mueve.</strong></div>
-  <div class="tools"><span>Claude en Chrome</span><span>ChatGPT · agente</span></div>
-  <div class="prompt step"><button class="copy" type="button">COPIAR</button>Entra en ClinicalTrials.gov y busca ensayos que estén reclutando en Cataluña para cáncer de pulmón de célula pequeña en estadio extendido. Devuélveme una tabla con: identificador, fase, fármaco, centro y el criterio de inclusión más restrictivo.</div>
-  <div class="watch step"><b>FÍJATE</b>Abre dos ensayos de la tabla y comprueba que el centro y la fase son correctos.</div>
+<section class="slide impact steps"><div class="inner">
+  <div class="statement">Todo esto, paso a paso, nos ha llevado la primera parte de la tarde.</div>
+  <div class="statement step" style="margin-top:4vh"><strong>Ahora, en una sola instrucción.</strong></div>
 </div></section>
 
-<!-- ============ PARTE 3 · REGLAS ============ -->
-<section class="slide chapter" data-mark="2" data-chapter="Reglas de oro"><div class="inner">
+<section class="slide demo steps" data-mark="A" data-chapter="Parte I · El agente"><div class="inner">
+  <div class="num">Parte I · Final · agente<span class="t">DEMO</span></div>
+  <div class="statement">Una carpeta y una instrucción.<br><strong>El agente hace el resto.</strong></div>
+  <div class="tools"><span>Claude Cowork</span><span>ChatGPT · agente</span><span>Copilot Cowork</span></div>
+  <div class="prompt step"><button class="copy" type="button">COPIAR</button>En la carpeta «Taller ICO» están los documentos de Roche y mi skill de lectura de ensayos. Responde a esta pregunta de investigación: [pregunta]. 1) Busca evidencia en PubMed y ClinicalTrials.gov. 2) Lee los PDF de la carpeta. 3) Construye la tabla de evidencia con página. 4) Redacta en Word el borrador de revisión narrativa. 5) Verifica cada referencia y dame la lista de lo que no has podido comprobar. Pregúntame antes de enviar o publicar nada.</div>
+  <div class="watch step"><b>FÍJATE</b>Déjalo trabajar mientras seguimos. Al volver: ¿qué ha construido? ¿Qué comprobarías antes de firmarlo?</div>
+</div></section>
+
+<!-- ============ PARTE II · DIAGNÓSTICO ============ -->
+<section class="slide chapter" data-mark="II" data-chapter="Parte II · Diagnóstico"><div class="inner">
+  <div class="kicker">Parte II · Diagnóstico</div>
+  <div class="gigante">Un caso.<br><strong>Un modelo de frontera.</strong></div>
+  <div class="sub">Caso ficticio. Ningún dato real de paciente. Usa el modelo más potente que tengas, con razonamiento al máximo.</div>
+</div></section>
+
+<section class="slide steps"><div class="inner">
+  <div class="kicker">Caso clínico · ficticio · por fases</div>
+  <ul class="lista compact">
+    <li class="step"><span class="n">FASE 1<br>CONSULTA</span>Varón de 64 años, exfumador de 45 paquetes-año. Tos, disnea de esfuerzo y 7 kg menos en dos meses.</li>
+    <li class="step"><span class="n">FASE 2<br>ANALÍTICA</span>Sodio 124 mmol/L con osmolalidad urinaria alta. LDH elevada.</li>
+    <li class="step"><span class="n">FASE 3<br>TC</span>Masa hiliar derecha de 6 cm, adenopatías mediastínicas bilaterales y dos lesiones hepáticas.</li>
+    <li class="step"><span class="n">FASE 4<br>EBUS</span>Células pequeñas. Sinaptofisina y TTF-1 positivos. Ki-67 del 85 %.</li>
+  </ul>
+</div></section>
+
+<section class="slide demo steps" data-mark="1"><div class="inner">
+  <div class="num">Parte II · Razonamiento por fases<span class="t">CASO</span></div>
+  <div class="statement">Que razone como en el comité:<br><strong>una fase cada vez.</strong></div>
+  <div class="tools"><span>ChatGPT · razonamiento máximo</span><span>Claude · razonamiento extendido</span><span>Gemini · Deep Think</span></div>
+  <div class="prompt step"><button class="copy" type="button">COPIAR</button>Eres oncólogo torácico en un comité de tumores. Te voy a dar un caso por fases. En cada fase dame: diagnóstico diferencial con probabilidad aproximada, la siguiente prueba que pedirías y por qué, y qué dato te haría cambiar de opinión. No avances hasta que te dé la siguiente fase. Fase 1: varón de 64 años, exfumador de 45 paquetes-año, con tos, disnea de esfuerzo y pérdida de 7 kg en dos meses.</div>
+  <div class="watch step"><b>FÍJATE</b>¿En qué fase acierta? ¿Interpreta la hiponatremia? ¿Pide RM cerebral para estadificar?</div>
+</div></section>
+
+<section class="slide demo steps" data-mark="2"><div class="inner">
+  <div class="num">Parte II · Decisión terapéutica<span class="t">CASO</span></div>
+  <div class="statement">Diagnóstico confirmado.<br><strong>Ahora, con evidencia.</strong></div>
+  <div class="tools"><span>El mismo modelo</span><span>OpenEvidence</span></div>
+  <div class="prompt step"><button class="copy" type="button">COPIAR</button>Con el diagnóstico confirmado, ¿qué opciones de primera línea tiene este paciente? Para cada una: el ensayo pivotal, el beneficio absoluto en supervivencia global, la toxicidad relevante y lo que dicen las guías ESMO y NCCN. Separa lo que sabes con certeza de lo que no, y dime qué datos del paciente cambiarían la recomendación.</div>
+  <div class="watch step"><b>FÍJATE</b>Contrasta sus cifras con la tabla que hicimos en la Parte I. ¿Coinciden?</div>
+</div></section>
+
+<section class="slide demo steps" data-mark="3"><div class="inner">
+  <div class="num">Parte II · Segunda opinión<span class="t">CASO</span></div>
+  <div class="statement">Pasa la respuesta de un modelo a otro.<br><strong>Busca dónde discrepan.</strong></div>
+  <div class="tools"><span>ChatGPT ⇄ Claude ⇄ Gemini</span></div>
+  <div class="prompt step"><button class="copy" type="button">COPIAR</button>Este es el razonamiento de otro especialista sobre el mismo caso: [pega la respuesta del otro modelo]. ¿En qué discrepas y por qué? ¿Qué ha pasado por alto? ¿Qué le preguntarías antes de aceptar su recomendación?</div>
+  <div class="watch step"><b>FÍJATE</b>Donde dos modelos discrepan, está tu trabajo.</div>
+</div></section>
+
+<section class="slide impact claro"><div class="inner">
+  <div class="statement">El modelo no firma el informe.<br><strong>Tú sí.</strong></div>
+  <div class="sub">Brillante y poco fiable, en el mismo minuto. Por eso el caso va por fases y la segunda opinión es otro modelo.</div>
+</div></section>
+
+<!-- ============ PARTE III · OFIMÁTICA ============ -->
+<section class="slide chapter" data-mark="III" data-chapter="Parte III · Ofimática y avatares"><div class="inner">
+  <div class="kicker">Parte III · Ofimática</div>
+  <div class="gigante">Documentos, diapositivas<br><strong>y un avatar.</strong></div>
+  <div class="sub">La IA dentro de las herramientas que ya usas cada día.</div>
+</div></section>
+
+<section class="slide demo steps" data-mark="1"><div class="inner">
+  <div class="num">Parte III · Excel<span class="t">OFIMÁTICA</span></div>
+  <div class="statement">Tu hoja de cálculo,<br><strong>en lenguaje natural.</strong></div>
+  <div class="tools"><span>Claude en Excel</span><span>Copilot en Excel</span><span>ChatGPT en Excel</span></div>
+  <div class="prompt step"><button class="copy" type="button">COPIAR</button>En esta hoja de pacientes anonimizados: añade una columna con la edad al diagnóstico, crea una tabla dinámica por estadio y línea de tratamiento, y un gráfico listo para la sesión del servicio. Explícame cada fórmula y dime qué filas tienen valores imposibles.</div>
+  <div class="watch step"><b>FÍJATE</b>Usa el dataset sintético de la Parte I. Pide que te explique las fórmulas: si no las entiendes, no las uses.</div>
+</div></section>
+
+<section class="slide demo steps" data-mark="2"><div class="inner">
+  <div class="num">Parte III · Presentaciones<span class="t">OFIMÁTICA</span></div>
+  <div class="statement">Del póster IMbrella<br><strong>a la sesión clínica.</strong></div>
+  <div class="tools"><span>Gamma</span><span>Claude · PowerPoint</span><span>Copilot en PowerPoint</span><span>Napkin · infografía</span></div>
+  <div class="prompt step"><button class="copy" type="button">COPIAR</button>Convierte este póster en una presentación de 6 diapositivas para la sesión del servicio: una idea por diapositiva, una figura en cada una, mensajes que no exageren el dato y notas del orador. Añade al final una versión de 150 palabras para pacientes y familias, en castellano y en catalán. Exporta a PowerPoint.</div>
+  <div class="watch step"><b>FÍJATE</b>¿Promete más de lo que dice el dato? Estar vivo a 7 años no es estar curado.</div>
+</div></section>
+
+<section class="slide demo steps" data-mark="3" data-chapter="Parte III · HeyGen"><div class="inner">
+  <div class="num">Parte III · Avatares · HeyGen<span class="t">VÍDEO</span></div>
+  <div class="statement">Un vídeo mío para vosotros.<br><strong>Que yo no he grabado.</strong></div>
+  <div class="tools"><span>Claude + conector HeyGen</span><span>HeyGen</span></div>
+  <div class="prompt step"><button class="copy" type="button">COPIAR</button>Con el conector de HeyGen, crea un vídeo de unos 40 segundos con el avatar de Javier Fuentes. Que salude a los oncólogos del ICO de L'Hospitalet y les cuente el dato que te parezca más relevante de uno de los documentos de Roche, citando el estudio. Tono cercano, en castellano. Antes de generarlo, enséñame el guion para aprobarlo.</div>
+  <div class="watch step"><b>FÍJATE</b>¿El dato es correcto? ¿Lo diría yo así? Un avatar habla en tu nombre: revisa el guion como si lo firmaras.</div>
+</div></section>
+
+<section class="slide impact"><div class="inner">
+  <div class="statement">Nadie grabó ese vídeo.<br><strong>Y sonaba a mí.</strong></div>
+  <div class="sub">Si un vídeo puede hablar en mi nombre, verifica la fuente antes de creerlo. Y la identidad antes de actuar.</div>
+</div></section>
+
+<!-- ============ PARA LLEVAR ============ -->
+<section class="slide chapter" data-mark="" data-chapter="Reglas de oro"><div class="inner">
   <div class="kicker">Para llevar</div>
   <div class="gigante">Reglas de <strong>oro.</strong></div>
 </div></section>
