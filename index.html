@@ -131,7 +131,7 @@ body { font-family:var(--sans); background:var(--fondo); color:var(--papel); ove
 .demo .sub { max-width:900px; margin-top:2.6vh; }
 .tools { display:flex; flex-wrap:wrap; gap:8px; margin-top:2.4vh; }
 .tools span { font-family:var(--mono); font-size:clamp(11px,.95vw,14px); letter-spacing:.04em; padding:.35em .75em; border:1px solid #47505a; border-radius:99px; color:#d9dee4; }
-.prompt { position:relative; margin-top:2.8vh; background:#0a0d10; border:1px solid #2c333b; border-left:3px solid var(--acento); border-radius:6px; padding:1.6vh 1.2vw 1.6vh 1.2vw; font-family:var(--mono); font-size:clamp(13px,1.18vw,19px); line-height:1.5; color:#dfe6ee; white-space:pre-wrap; max-width:980px; }
+.prompt { position:relative; margin-top:2.8vh; background:#0a0d10; border:1px solid #2c333b; border-left:3px solid var(--acento); border-radius:6px; padding:1.6vh 7.5em 1.6vh 1.2vw; font-family:var(--mono); font-size:clamp(13px,1.18vw,19px); line-height:1.5; color:#dfe6ee; white-space:pre-wrap; max-width:980px; }
 .prompt::before { content:'PROMPT'; position:absolute; top:-.75em; left:1em; background:#0a0d10; padding:0 .5em; font-size:10px; letter-spacing:.18em; color:var(--acento); }
 .copy { position:absolute; top:8px; right:8px; font:600 11px var(--mono); letter-spacing:.08em; color:#9fb0c2; background:#151b21; border:1px solid #2f3842; border-radius:4px; padding:4px 9px; cursor:pointer; }
 .copy:hover { color:var(--acento); border-color:var(--acento); }
@@ -275,22 +275,14 @@ dialog.nav p { margin-top:18px; font:13px var(--mono); color:#9aa; line-height:1
 </div></section>
 
 <section class="slide demo steps" data-mark="5"><div class="inner">
-  <div class="num">Parte I · Lectura crítica<span class="t">PASO 03</span></div>
-  <div class="statement">No pidas un resumen.<br><strong>Pide que te lleve la contraria.</strong></div>
-  <div class="tools"><span>Claude · razonamiento extendido</span><span>ChatGPT · razonamiento</span><span>Gemini</span></div>
-  <div class="prompt step"><button class="copy" type="button">COPIAR</button>Eres el discussant más exigente de ESMO. Con esta presentación de Krascendo 1: 1) las cinco debilidades metodológicas más serias, de mayor a menor; 2) las tres preguntas que harías desde el micrófono; 3) qué dato falta para cambiar la práctica clínica. Sé concreto y cita la diapositiva.</div>
-  <div class="watch step"><b>FÍJATE</b>¿Habrías visto tú esas debilidades? ¿Hay alguna injusta? Discutirlo es el ejercicio.</div>
+  <div class="num">Parte I · Consolidación<span class="t">PASO 04</span></div>
+  <div class="statement">Junta todo lo recopilado.<br><strong>Que lo consolide por ti.</strong></div>
+  <div class="tools"><span>NotebookLM</span><span>ChatGPT · investigación avanzada</span><span>Gemini · Deep Research</span><span>Claude · Research</span></div>
+  <div class="prompt step"><button class="copy" type="button">COPIAR</button>Te adjunto todo lo que he recopilado sobre esta pregunta: [pregunta]. Las respuestas de los buscadores, los informes de Consensus y Elicit, y mis documentos. Consolídalo en un informe integrado. Contrasta las cifras que no coinciden entre fuentes, di cuál es la fuente primaria de cada una y señala qué afirmaciones no tienen respaldo en un artículo.</div>
+  <div class="watch step"><b>FÍJATE</b>NotebookLM se queda dentro de tus fuentes y enlaza cada frase. Deep Research sale a buscar más: tarda más y hay que revisar más.</div>
 </div></section>
 
 <section class="slide demo steps" data-mark="6"><div class="inner">
-  <div class="num">Parte I · Consolidación<span class="t">PASO 04</span></div>
-  <div class="statement">Deep Research no solo investiga.<br><strong>También consolida lo que ya tienes.</strong></div>
-  <div class="tools"><span>ChatGPT · investigación avanzada</span><span>Claude · Research</span><span>Gemini · Deep Research</span></div>
-  <div class="prompt step"><button class="copy" type="button">COPIAR</button>Te adjunto todo lo que he recopilado sobre esta pregunta: [pregunta]. Ayúdame a consolidarlo en un informe integrado. Contrasta las cifras que no coinciden entre fuentes, di cuál es la fuente primaria de cada una y señala qué afirmaciones no tienen respaldo en un artículo.</div>
-  <div class="watch step"><b>FÍJATE</b>Puede tardar de 5 minutos a varias horas. Revisarlo te llevará más que generarlo.</div>
-</div></section>
-
-<section class="slide demo steps" data-mark="7"><div class="inner">
   <div class="num">Parte I · Redacción<span class="t">PASO 04</span></div>
   <div class="statement">Redacta donde escribes:<br><strong>la IA dentro de Word.</strong></div>
   <div class="tools"><span>ChatGPT en Word</span><span>Claude en Word</span><span>Copilot en Word</span></div>
@@ -298,7 +290,7 @@ dialog.nav p { margin-top:18px; font:13px var(--mono); color:#9aa; line-height:1
   <div class="watch step"><b>FÍJATE</b>Escribe sobre el documento para que lo coedites. Es un borrador, no un artículo.</div>
 </div></section>
 
-<section class="slide demo steps" data-mark="8"><div class="inner">
+<section class="slide demo steps" data-mark="7"><div class="inner">
   <div class="num">Parte I · Verificación<span class="t">PASO 05</span></div>
   <div class="statement">Cada cita existe<br><strong>y dice lo que afirmas.</strong></div>
   <div class="tools"><span>Claude + conector PubMed</span><span>Scite</span><span>Zotero</span></div>
@@ -306,7 +298,7 @@ dialog.nav p { margin-top:18px; font:13px var(--mono); color:#9aa; line-height:1
   <div class="watch step"><b>FÍJATE</b>El cuello de botella ya no es producir. Es comprobar. Este paso es tuyo.</div>
 </div></section>
 
-<section class="slide demo steps" data-mark="9"><div class="inner">
+<section class="slide demo steps" data-mark="8"><div class="inner">
   <div class="num">Parte I · Datos de pacientes<span class="t">DATOS</span></div>
   <div class="statement">El dato no sale del hospital.<br><strong>Sale solo la estructura.</strong></div>
   <div class="tools"><span>Claude · artefactos</span><span>ChatGPT · Canvas</span></div>
@@ -314,7 +306,7 @@ dialog.nav p { margin-top:18px; font:13px var(--mono); color:#9aa; line-height:1
   <div class="watch step"><b>FÍJATE</b>Claude solo ha visto las cabeceras. El Excel real lo abres tú, en tu ordenador, sin conexión.</div>
 </div></section>
 
-<section class="slide demo steps" data-mark="10"><div class="inner">
+<section class="slide demo steps" data-mark="9"><div class="inner">
   <div class="num">Parte I · Análisis<span class="t">DATOS</span></div>
   <div class="statement">Pide el código, <strong>no el resultado</strong>.</div>
   <div class="tools"><span>Claude</span><span>ChatGPT</span><span>R / Python</span></div>
@@ -322,7 +314,7 @@ dialog.nav p { margin-top:18px; font:13px var(--mono); color:#9aa; line-height:1
   <div class="watch step"><b>FÍJATE</b>Mismo código, mismo dato, mismo resultado. Eso se puede declarar en el artículo.</div>
 </div></section>
 
-<section class="slide demo steps" data-mark="11"><div class="inner">
+<section class="slide demo steps" data-mark="10"><div class="inner">
   <div class="num">Parte I · Skills<span class="t">MÉTODO</span></div>
   <div class="statement">Lo que explicas una vez,<br><strong>no lo repitas.</strong></div>
   <div class="tools"><span>Claude · Skills</span><span>ChatGPT · GPTs</span><span>Copilot · agentes</span></div>
