@@ -162,6 +162,11 @@ html.motion-off .crt-accent::before,html.motion-off .crt-accent::after { display
 .tis .masthead { width:min(560px,48vw); filter:invert(1); mix-blend-mode:screen; margin-bottom:3vh; }
 .tis .qr { width:clamp(150px,15vw,230px); background:#fff; padding:10px; border-radius:6px; }
 
+.slide.film { padding:0; background:#000; cursor:pointer; }
+.slide.film video { width:100%; height:100%; object-fit:contain; background:#000; }
+.slide.film .hint { position:absolute; left:50%; bottom:8vh; transform:translateX(-50%); font-family:var(--mono); font-size:13px; letter-spacing:.14em; color:#fff; background:rgba(15,18,21,.8); padding:.6em 1em; border-radius:4px; transition:opacity .4s; }
+.slide.film.playing .hint { opacity:0; }
+body.film-on .pie,body.film-on #pag { display:none; }
 /* Chrome */
 #barra { position:fixed; left:0; bottom:0; height:3px; background:var(--acento); width:0; transition:width .3s ease; z-index:9; }
 #pag { position:fixed; right:2vw; bottom:2vh; font-family:var(--mono); font-size:12px; color:var(--papel-suave); opacity:.7; z-index:9; }
@@ -420,6 +425,8 @@ dialog.nav p { margin-top:18px; font:13px var(--mono); color:#9aa; line-height:1
   <div class="sub">Si un vídeo puede hablar en mi nombre, verifica la fuente antes de creerlo. Y la identidad antes de actuar.</div>
 </div></section>
 
+<section class="slide film" data-chapter="Vídeo · avatar" data-title="De hacer a comprobar"><video src="video/avatar-ico.mp4" poster="img/avatar-poster.jpg" preload="auto" playsinline></video><div class="hint">▶ PULSA PARA REPRODUCIR · 0:46</div></section>
+
 <!-- ============ PARA LLEVAR ============ -->
 <section class="slide chapter" data-mark="" data-chapter="Reglas de oro"><div class="inner">
   <div class="kicker">Para llevar</div>
@@ -479,9 +486,13 @@ dialog.nav p { margin-top:18px; font:13px var(--mono); color:#9aa; line-height:1
     i = n; const s = slides[i];
     stepsOf(s).forEach(st => st.classList.toggle('on', !!revealAll));
     s.classList.add('on');
+    document.querySelectorAll('.film video').forEach(v => { if (!s.contains(v)) { v.pause(); v.closest('.film').classList.remove('playing'); } });
+    const film = s.querySelector('.film video, video');
+    if (film && s.classList.contains('film')) { film.currentTime = 0; film.play().then(() => s.classList.add('playing')).catch(() => {}); }
     barra.style.width = ((i + 1) / slides.length * 100) + '%';
     pag.textContent = (i + 1) + ' / ' + slides.length;
     document.body.classList.toggle('dark-chrome', s.classList.contains('claro'));
+    document.body.classList.toggle('film-on', s.classList.contains('film'));
     history.replaceState(null, '', '#' + (i + 1));
   }
   function next() {
@@ -513,6 +524,8 @@ dialog.nav p { margin-top:18px; font:13px var(--mono); color:#9aa; line-height:1
   document.addEventListener('click', e => {
     if (e.target.closest('.copy,dialog')) return;
     if (document.body.classList.contains('is-blackout')) { document.body.classList.remove('is-blackout'); return; }
+    const film = slides[i].classList.contains('film') && slides[i].querySelector('video');
+    if (film && e.clientX >= innerWidth * .2) { if (film.paused) { film.play(); slides[i].classList.add('playing'); } else { film.pause(); slides[i].classList.remove('playing'); } return; }
     e.clientX < innerWidth * .2 ? prev() : next();
   });
   document.querySelectorAll('.copy').forEach(btn => btn.addEventListener('click', async e => {
