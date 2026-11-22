@@ -66,14 +66,14 @@ body { font-family:var(--sans); background:var(--fondo); color:var(--papel); ove
 .chapter::after { content:attr(data-mark); position:absolute; right:5vw; bottom:-.14em; font-size:clamp(230px,31vw,540px); line-height:1; font-weight:700; letter-spacing:-.09em; color:rgba(255,255,255,.08); z-index:0; }
 
 /* Cover */
-.cover::before { content:''; position:absolute; inset:0; z-index:0; background:linear-gradient(90deg,rgba(6,10,16,.97) 0%,rgba(6,10,16,.8) 50%,rgba(6,10,16,.2) 100%),url('img/gpu.jpg') center/cover; }
+.cover::before { content:''; position:absolute; inset:0; z-index:0; background:linear-gradient(90deg,rgba(2,4,8,.9) 0%,rgba(2,4,8,.65) 50%,rgba(2,4,8,0) 75%),url('img/cover.jpg') right center/cover #000; }
 .cover.on::before { animation:slow-reveal 9s var(--ease) both; }
 .cover .kicker { margin-bottom:7vh; }
 .cover .gigante { font-size:clamp(46px,6.7vw,108px); max-width:1180px; }
 .cover .presenter { margin-top:6vh; padding-top:2.2vh; border-top:1px solid rgba(255,255,255,.3); width:fit-content; min-width:320px; }
 .cover .presenter b { display:block; font-size:clamp(24px,2.4vw,38px); font-weight:600; letter-spacing:-.025em; }
 .cover .presenter span { color:#d8dde3; font-size:clamp(15px,1.3vw,20px); }
-.logo-roche { position:absolute; right:7vw; top:7vh; width:clamp(110px,11vw,170px); z-index:3; filter:invert(1) grayscale(1) brightness(2.2); mix-blend-mode:screen; }
+.logo-roche { position:absolute; left:8vw; top:7vh; width:clamp(110px,11vw,170px); z-index:3; filter:invert(1) grayscale(1) brightness(2.2); mix-blend-mode:screen; }
 
 /* Impact */
 .impact .inner { max-width:1190px; text-align:center; }
