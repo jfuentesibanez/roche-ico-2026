@@ -1,6 +1,19 @@
 /* Presentation controls remain in index.html; this module owns only its scenes. */
 (() => {
   'use strict';
+  // A real text layer lets the existing CRT accent animate each step marker.
+  document.querySelectorAll('.slide.demo[data-mark]').forEach(slide => {
+    const mark = document.createElement('div');
+    mark.className = 'demo-mark';
+    mark.setAttribute('aria-hidden', 'true');
+    const text = document.createElement('span');
+    text.className = 'crt-accent';
+    text.dataset.text = slide.dataset.mark;
+    text.textContent = slide.dataset.mark;
+    mark.append(text);
+    slide.append(mark);
+    slide.classList.add('has-display-mark');
+  });
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const motionOff = () => reduced.matches || document.documentElement.classList.contains('motion-off');
   const closing = document.querySelector('.silicon-scene');
