@@ -16,6 +16,55 @@
   });
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const motionOff = () => reduced.matches || document.documentElement.classList.contains('motion-off');
+  // Each reveal reframes a different object in the same clinical scene.
+  const tour = document.querySelector('.research-tour');
+  if (tour) {
+    const photo = tour.querySelector('.research-photo');
+    const intro = tour.querySelector('.research-intro');
+    const beats = [...tour.querySelectorAll('.research-beat')];
+    const progress = [...tour.querySelectorAll('.research-progress span')];
+    const portrait = matchMedia('(max-aspect-ratio:1/1)');
+    let lastBeat = -2;
+    function updateTour(force = false) {
+      if (!tour.classList.contains('on')) { lastBeat = -2; return; }
+      const index = beats.findLastIndex(beat => beat.classList.contains('on'));
+      if (index === lastBeat && !force) return;
+      lastBeat = index;
+      const beat = beats[index];
+      if (beat) tour.dataset.view = beat.dataset.view;
+      else delete tour.dataset.view;
+      intro.setAttribute('aria-hidden', String(Boolean(beat)));
+      beats.forEach((item, n) => {
+        item.classList.toggle('research-current', n === index);
+        item.setAttribute('aria-hidden', String(n !== index));
+      });
+      progress.forEach((item, n) => {
+        item.classList.toggle('visited', n <= index);
+        item.classList.toggle('current', n === index);
+      });
+      const [x, y, zoom] = beat?.dataset.frame?.split(' ').map(Number) || [.5, .5, 1];
+      const w = tour.clientWidth, h = tour.clientHeight;
+      const ratio = photo.naturalWidth ? photo.naturalWidth / photo.naturalHeight : 1672 / 941;
+      const imageWidth = Math.max(w, h * ratio), imageHeight = imageWidth / ratio;
+      const focusX = (w - imageWidth) / 2 + x * imageWidth;
+      const focusY = (h - imageHeight) / 2 + y * imageHeight;
+      const scale = portrait.matches ? Math.min(zoom, 2.1) : zoom;
+      const anchorX = portrait.matches ? .5 : beat?.dataset.view === 'left' ? .72 : .30;
+      const anchorY = portrait.matches ? .35 : .51;
+      const tx = Math.min(0, Math.max(w * (1 - scale), w * anchorX - focusX * scale));
+      const ty = Math.min(0, Math.max(h * (1 - scale), h * anchorY - focusY * scale));
+      tour.style.setProperty('--research-x', `${tx}px`);
+      tour.style.setProperty('--research-y', `${ty}px`);
+      tour.style.setProperty('--research-scale', scale);
+    }
+    const observer = new MutationObserver(() => updateTour());
+    const options = { attributes:true, attributeFilter:['class'] };
+    observer.observe(tour, options);
+    beats.forEach(beat => observer.observe(beat, options));
+    photo.addEventListener('load', () => updateTour(true));
+    window.addEventListener('resize', () => updateTour(true));
+    updateTour();
+  }
   const closing = document.querySelector('.silicon-scene');
   let generation = 0, running = false;
   const animations = new Set();
