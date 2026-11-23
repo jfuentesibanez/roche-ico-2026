@@ -81,20 +81,18 @@
 .workflow-recap[data-scene-state='2'] .human-check { opacity:1; transform:translate(-50%,-50%); }
 
 .slide.material-scene { padding:0; background:#03070b; }
+.material-scene.on ~ .pie { display:none; }
 .material-scene .material-still,.material-transition,.material-transition img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 .material-scene .material-still { transform-origin:50% 50%; }
 .material-scene.on .material-still { animation:material-breathe 15s var(--ease) both; }
 .sand-scene.on .material-still { animation:none; }
 @keyframes material-breathe { from { transform:scale(1.035); } to { transform:scale(1); } }
-.material-scene .cap { position:absolute; left:6vw; bottom:7vh; z-index:4; font:clamp(14px,1.1vw,18px) var(--mono); text-transform:uppercase; letter-spacing:.17em; padding:.7em 1em; color:#f7f6f2; background:#06101bd9; border-left:2px solid var(--acento); transition:opacity .6s ease; }
-.material-scene.sand-scene .cap { border-color:#e3b578; }
 .material-transition { z-index:3; overflow:hidden; pointer-events:none; background:#03070b; }
 .material-transition[hidden] { display:none; }
 .material-transition img { transform-origin:50% 50%; will-change:transform,opacity; }
 .material-transition .transition-sand { z-index:3; }
 .material-transition .transition-macro { z-index:2; }
 .material-transition .transition-chip { z-index:1; }
-.silicon-scene[data-transitioning='true'] .cap { opacity:0; }
 
 html.motion-off .slide,html.motion-off .slide::before,html.motion-off .slide::after,html.motion-off .slide *,html.motion-off .slide *::before,html.motion-off .slide *::after { animation:none !important; transition:none !important; }
 @media (prefers-reduced-motion:reduce) {
