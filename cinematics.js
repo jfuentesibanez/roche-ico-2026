@@ -1,0 +1,99 @@
+/* Presentation controls remain in index.html; this module owns only its scenes. */
+(() => {
+  'use strict';
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const motionOff = () => reduced.matches || document.documentElement.classList.contains('motion-off');
+  const closing = document.querySelector('.silicon-scene');
+  let generation = 0, running = false;
+  const animations = new Set();
+  const imageReady = image => image.decode().catch(() => {});
+  // Eager decoding prevents a blank frame during the cross-dissolve, including offline.
+  const imagesReady = Promise.all([...document.querySelectorAll('.material-scene img')].map(imageReady));
+
+  function finishClosing() {
+    generation++;
+    running = false;
+    animations.forEach(animation => animation.cancel());
+    animations.clear();
+    closing.dataset.transitioning = 'false';
+    closing.querySelector('.material-transition').hidden = true;
+  }
+
+  function animate(element, frames, options) {
+    const animation = element.animate(frames, { fill:'both', ...options });
+    animations.add(animation);
+    return animation.finished.catch(() => {}).finally(() => animations.delete(animation));
+  }
+
+  async function playClosing() {
+    finishClosing();
+    if (motionOff()) return;
+    const token = generation;
+    running = true;
+    await imagesReady;
+    if (token !== generation || !closing.classList.contains('on') || motionOff()) return;
+    const layer = closing.querySelector('.material-transition');
+    const sand = layer.querySelector('.transition-sand');
+    const macro = layer.querySelector('.transition-macro');
+    const chip = layer.querySelector('.transition-chip');
+    layer.hidden = false;
+    closing.dataset.transitioning = 'true';
+    // Warm grain -> full-frame circuitry -> a complete cold-blue accelerator.
+    // Opacity overlaps prevent dark flashes. The camera never rotates.
+    await Promise.all([
+      animate(sand, [
+        { transform:'scale(1)', opacity:1, offset:0 },
+        { transform:'scale(2.75)', opacity:1, offset:.65 },
+        { transform:'scale(3.4)', opacity:0, offset:1 }
+      ], { duration:3600, easing:'cubic-bezier(.45,0,.2,1)' }),
+      animate(macro, [
+        { transform:'scale(1)', opacity:1, offset:0 },
+        { transform:'scale(1.16)', opacity:1, offset:.55 },
+        { transform:'scale(1.23)', opacity:0, offset:1 }
+      ], { duration:3400, delay:2100, easing:'ease-in-out' }),
+      animate(chip, [
+        { transform:'scale(2.4)', opacity:1 },
+        { transform:'scale(1)', opacity:1 }
+      ], { duration:4100, delay:3700, easing:'cubic-bezier(.22,1,.36,1)' })
+    ]);
+    if (token === generation) finishClosing();
+  }
+
+  function workflowState(slide, state) {
+    slide.dataset.sceneState = String(state);
+    const title = slide.querySelector('.workflow-heading');
+    title.children[0].setAttribute('aria-hidden', String(state > 0));
+    title.children[1].setAttribute('aria-hidden', String(state === 0));
+    slide.querySelector('.workflow-hub').setAttribute('aria-hidden', String(state === 0));
+    slide.querySelector('.human-check').setAttribute('aria-hidden', String(state < 2));
+    slide.querySelectorAll('.workflow-node').forEach(node => node.setAttribute('aria-hidden', String(state > 0)));
+  }
+
+  window.rocheCinematics = {
+    leave(slide) { if (slide === closing) finishClosing(); },
+    enter(slide, { previous, revealAll }) {
+      if (slide.classList.contains('workflow-recap')) workflowState(slide, revealAll ? 2 : 0);
+      if (slide === closing) {
+        if (previous?.classList.contains('sand-scene') && !revealAll) playClosing();
+        else finishClosing();
+      }
+    },
+    next(slide) {
+      if (slide === closing && running) { finishClosing(); return true; }
+      if (!slide.classList.contains('workflow-recap')) return false;
+      const state = Number(slide.dataset.sceneState);
+      if (state >= 2) return false;
+      workflowState(slide, state + 1);
+      return true;
+    },
+    prev(slide) {
+      if (!slide.classList.contains('workflow-recap')) return false;
+      const state = Number(slide.dataset.sceneState);
+      if (state <= 0) return false;
+      workflowState(slide, state - 1);
+      return true;
+    },
+    motionChanged() { if (motionOff()) finishClosing(); }
+  };
+  reduced.addEventListener('change', () => window.rocheCinematics.motionChanged());
+})();
