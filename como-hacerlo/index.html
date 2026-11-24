@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presentaciones con IA · cómo hacerlas</title>
+<meta name="description" content="Un prompt y una plantilla para crear con IA una presentación en HTML con el estilo del taller de IA del ICO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --fondo:#0f1215; --papel:#f7f6f2; --suave:#b3b8bf; --linea:#2c333b;
+  --acento:#6cb4ff; --hondo:#0b41cd; --ambar:#ffd27a;
+  --sans:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:radial-gradient(ellipse 120% 70% at 100% 0%,#172638,#121a24 40%,var(--fondo) 80%) fixed, var(--fondo); color:var(--papel); line-height:1.55; -webkit-font-smoothing:antialiased; }
+.wrap { max-width:1000px; margin:0 auto; padding:0 24px; }
+a { color:var(--acento); }
+.kicker { font-size:13px; letter-spacing:.17em; text-transform:uppercase; font-weight:650; color:var(--acento); margin-bottom:22px; }
+.kicker::before { content:''; display:inline-block; width:2.4em; height:2px; background:currentColor; margin-right:1em; vertical-align:middle; }
+h1 { font-size:clamp(44px,7.5vw,92px); line-height:1.02; letter-spacing:-.05em; font-weight:600; }
+h1 strong,h2 strong { color:var(--acento); font-weight:inherit; }
+h2 { font-size:clamp(30px,4.2vw,48px); line-height:1.1; letter-spacing:-.035em; font-weight:600; margin-bottom:18px; }
+p.lead { font-size:clamp(18px,1.9vw,22px); color:var(--suave); max-width:720px; margin-top:26px; }
+p.lead strong { color:var(--papel); font-weight:600; }
+section { padding:72px 0; border-top:1px solid var(--linea); }
+header { padding:16vh 0 12vh; }
+.btns { display:flex; flex-wrap:wrap; gap:12px; margin-top:34px; }
+.btn { font-family:var(--mono); font-size:14px; letter-spacing:.04em; padding:12px 18px; border-radius:6px; border:1px solid var(--acento); color:var(--acento); text-decoration:none; background:transparent; cursor:pointer; }
+.btn.lleno { background:var(--acento); color:#0f1215; font-weight:600; }
+.btn:hover { filter:brightness(1.15); }
+
+/* El efecto */
+.crt-accent { --crt-color:var(--acento); --crt-stripe:color-mix(in srgb,var(--acento) 62%,#000); position:relative; display:inline-block; white-space:nowrap; padding-inline-end:.12em; margin-inline-end:-.12em; color:var(--crt-color); -webkit-text-fill-color:transparent; background:repeating-linear-gradient(0deg,var(--crt-color) 0px,var(--crt-color) 2px,var(--crt-stripe) 2px,var(--crt-stripe) 3px); -webkit-background-clip:text; background-clip:text; animation:crt-signal 8.6s steps(1,end) .8s infinite,crt-scan 6.7s linear infinite; }
+.crt-accent::before,.crt-accent::after { content:attr(data-text); position:absolute; inset:0; pointer-events:none; opacity:0; -webkit-text-fill-color:currentColor; }
+.crt-accent::before { color:#32f9f1; text-shadow:2px 0 #32f9f180; animation:crt-tear-cyan 5.9s steps(1,end) .9s infinite; }
+.crt-accent::after { color:#ff3b9d; text-shadow:-2px 0 #ff3b9d80; animation:crt-tear-magenta 7.7s steps(1,end) 1.05s infinite; }
+.crt-accent.coral { --crt-color:#ff876b; --crt-stripe:#bd5946; }
+@keyframes crt-scan { to { background-position:0 12px; } }
+@keyframes crt-signal { 0%,5.5%,19%,100% { transform:none; } 1% { transform:translateX(.012em) skewX(-2deg); filter:brightness(1.25); } 2.4% { transform:translateX(-.01em) skewX(1deg); filter:brightness(.8); } 3.5% { transform:none; filter:brightness(1.15); } 17.5% { transform:skewX(-1deg); filter:brightness(1.2); } }
+@keyframes crt-tear-cyan { 0%,7%,100% { opacity:0; transform:none; clip-path:inset(0); } 1% { opacity:.85; transform:translateX(-.045em); clip-path:inset(15% 0 62% 0); } 3% { opacity:.7; transform:translateX(.035em); clip-path:inset(63% 0 17% 0); } 5% { opacity:.5; transform:translateX(-.02em); clip-path:inset(38% 0 49% 0); } }
+@keyframes crt-tear-magenta { 0%,6%,100% { opacity:0; transform:none; clip-path:inset(0); } 1% { opacity:.8; transform:translateX(.045em); clip-path:inset(58% 0 18% 0); } 2.8% { opacity:.65; transform:translateX(-.03em); clip-path:inset(23% 0 62% 0); } 4.5% { opacity:.4; transform:translateX(.02em); clip-path:inset(76% 0 10% 0); } }
+@media (prefers-reduced-motion:reduce) { .crt-accent,.crt-accent::before,.crt-accent::after { animation:none; } }
+
+.demo-box { margin-top:26px; border:1px solid var(--linea); border-radius:10px; padding:48px 32px; background:#0b0e11; text-align:center; }
+.demo-box .big { font-size:clamp(48px,9vw,120px); font-weight:600; letter-spacing:-.05em; line-height:1; }
+.demo-box small { display:block; margin-top:18px; font-family:var(--mono); font-size:12px; color:var(--suave); letter-spacing:.08em; }
+
+/* Pasos */
+.pasos { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:28px; }
+.paso { border-top:2px solid var(--acento); padding-top:16px; }
+.paso .n { font-family:var(--mono); color:var(--acento); font-size:13px; letter-spacing:.1em; }
+.paso h3 { font-size:22px; font-weight:600; letter-spacing:-.02em; margin:6px 0 8px; }
+.paso p { color:var(--suave); font-size:16px; }
+
+/* Prompt */
+.prompt { position:relative; margin-top:24px; background:#0a0d10; border:1px solid var(--linea); border-left:3px solid var(--acento); border-radius:8px; padding:26px 110px 22px 22px; font-family:var(--mono); font-size:14.5px; line-height:1.65; color:#dfe6ee; white-space:pre-wrap; }
+.prompt::before { content:attr(data-label); position:absolute; top:-.75em; left:1em; background:#0a0d10; padding:0 .5em; font-size:11px; letter-spacing:.18em; color:var(--acento); }
+.copy { position:absolute; top:10px; right:10px; font:600 12px var(--mono); letter-spacing:.08em; color:#9fb0c2; background:#151b21; border:1px solid #2f3842; border-radius:4px; padding:6px 11px; cursor:pointer; }
+.copy:hover { color:var(--acento); border-color:var(--acento); }
+.copy.ok { color:#5fd39a; border-color:#5fd39a; }
+.nota { margin-top:14px; color:var(--ambar); font-size:16px; }
+
+/* Tabla */
+table { width:100%; border-collapse:collapse; margin-top:22px; font-size:16px; }
+td { padding:13px 10px; border-top:1px solid var(--linea); vertical-align:top; }
+tr:last-child td { border-bottom:1px solid var(--linea); }
+td:first-child { font-family:var(--mono); color:var(--acento); font-size:14px; white-space:nowrap; width:1%; padding-right:22px; }
+td span { color:var(--suave); }
+
+.reglas { list-style:none; margin-top:18px; counter-reset:r; }
+.reglas li { counter-increment:r; padding:14px 0 14px 3.2em; position:relative; border-top:1px solid var(--linea); font-size:19px; }
+.reglas li:last-child { border-bottom:1px solid var(--linea); }
+.reglas li::before { content:counter(r,decimal-leading-zero); position:absolute; left:0; top:17px; font-family:var(--mono); font-size:13px; color:var(--acento); }
+.reglas li span { display:block; color:var(--suave); font-size:15px; }
+kbd { font-family:var(--mono); font-size:13px; border:1px solid #47505a; border-radius:4px; padding:1px 7px; color:#e3e8ee; }
+.teclas { display:flex; flex-wrap:wrap; gap:10px 26px; margin-top:18px; color:var(--suave); }
+footer { padding:56px 0 70px; border-top:1px solid var(--linea); color:var(--suave); font-size:15px; }
+@media (max-width:760px) { .pasos { grid-template-columns:1fr; } td:first-child { white-space:normal; } header { padding:10vh 0 8vh; } }
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <div class="kicker">Taller de IA · ICO L'Hospitalet</div>
+  <h1>Cómo hacer una presentación<br>como <strong><span class="crt-accent" data-text="esta" aria-hidden="true">esta</span><span class="sr" style="position:absolute;left:-9999px">esta</span>.</strong></h1>
+  <p class="lead">Una plantilla en HTML, un prompt y tu contenido. <strong>La IA escribe el código; tú pones las ideas.</strong> Sin PowerPoint, sin instalar nada: un solo archivo que se abre en cualquier navegador.</p>
+  <div class="btns">
+    <a class="btn lleno" href="plantilla-deck.html" download>↓ Descargar la plantilla</a>
+    <a class="btn" href="plantilla-deck.html" target="_blank" rel="noopener">Ver la plantilla en marcha</a>
+    <a class="btn" href="../" target="_blank" rel="noopener">Ver la presentación del taller</a>
+  </div>
+</div></header>
+
+<section><div class="wrap">
+  <div class="kicker">El efecto</div>
+  <h2>Un parpadeo de <strong>televisor antiguo</strong>, solo en la palabra clave.</h2>
+  <p class="lead">Líneas de escaneo dentro de las letras y, de vez en cuando, un desgarro de color cian y magenta. Es CSS puro: ni imágenes ni librerías. Úsalo poco, en cuatro o cinco momentos del deck, para que siga sorprendiendo.</p>
+  <div class="demo-box">
+    <div class="big">Las predicciones son <span class="crt-accent coral" data-text="inútiles" aria-hidden="true">inútiles</span>.</div>
+    <small>&lt;span class="crt-accent" data-text="inútiles"&gt;inútiles&lt;/span&gt;</small>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="kicker">Tres pasos</div>
+  <h2>De tus notas a la presentación <strong>en una tarde.</strong></h2>
+  <div class="pasos">
+    <div class="paso"><div class="n">01</div><h3>Descarga la plantilla</h3><p>Un archivo HTML con ocho diapositivas de ejemplo, una por cada pieza del sistema.</p></div>
+    <div class="paso"><div class="n">02</div><h3>Pásasela a la IA</h3><p>En Claude o ChatGPT, adjunta la plantilla, pega el prompt de abajo y añade tu guion o tus notas.</p></div>
+    <div class="paso"><div class="n">03</div><h3>Ajusta conversando</h3><p>Ábrela en el navegador y pide cambios: «quita esta», «une estas dos», «más corto». Guarda el HTML final.</p></div>
+  </div>
+</div></section>
+
+<section id="prompt"><div class="wrap">
+  <div class="kicker">El prompt</div>
+  <h2>Cópialo, rellena los corchetes <strong>y adjunta la plantilla.</strong></h2>
+  <div class="prompt" data-label="PROMPT"><button class="copy" type="button">COPIAR</button>Te adjunto plantilla-deck.html. Úsala como base para crear una presentación nueva en un único archivo HTML. Respeta su CSS, su JavaScript de navegación y sus componentes; cambia solo el contenido y los colores que te indique.
+
+Tema: [de qué va la charla]
+Público: [quién la va a ver y qué sabe ya]
+Duración: [minutos]
+Idioma: [castellano / català / inglés]
+Color de acento: [por ejemplo, el azul de mi hospital, #6cb4ff]. Ajusta --acento (texto destacado, que se lea sobre fondo oscuro) y --acento-hondo (fondo de los capítulos).
+
+Reglas de estilo:
+1. Una idea por diapositiva. Si necesitas un «y además», es otra diapositiva.
+2. Frases cortas. Nada de párrafos. Máximo 4 elementos por lista.
+3. En cada diapositiva, destaca con &lt;strong&gt; solo 1 a 3 palabras.
+4. Usa el efecto de parpadeo (.crt-accent, con data-text igual al texto) en 4 o 5 momentos clave del deck como mucho.
+5. Organiza en capítulos con .chapter (numerados en data-mark) y añade data-chapter a la primera diapositiva de cada bloque para el navegador de capítulos (tecla G).
+6. Para frases de impacto, .impact (oscuro) o .impact.claro (claro). Para listas, .lista con class="step" en cada elemento, para que aparezcan una a una.
+7. Si hay ejercicios para el público, usa .demo con su número grande, una caja .prompt con botón COPIAR y una línea «FÍJATE» que diga qué comprobar.
+8. Donde haga falta una imagen, usa .foto contain con un marcador de posición y escribe en el alt qué imagen poner.
+9. No inventes datos ni citas. Si un dato necesita fuente, déjalo entre corchetes para que yo lo complete.
+
+Estructura: portada (.cover), una frase de apertura, 3 a 5 capítulos y un cierre con frase final y «Gracias».
+
+Entrega:
+a) El HTML completo, listo para guardar y abrir.
+b) Una lista de las imágenes que faltan, con un prompt en inglés para generar cada una (fondo oscuro, sin texto, 16:9).
+
+Mi contenido:
+[pega aquí tu guion, tus notas o el índice]</div>
+  <p class="nota">Consejo: en Claude, pide que lo cree como artefacto para verlo funcionar en la misma conversación. Si la IA no puede abrir adjuntos, pega el código de la plantilla al final del prompt.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="kicker">Las piezas</div>
+  <h2>Ocho componentes. <strong>Con eso basta.</strong></h2>
+  <table>
+    <tr><td>.cover</td><td>Portada con imagen de fondo a la derecha y texto a la izquierda. <span>Cambia --portada por url('tu-imagen.jpg').</span></td></tr>
+    <tr><td>.chapter</td><td>Separador de capítulo a color, con un número gigante de marca de agua. <span>data-mark="1"</span></td></tr>
+    <tr><td>.impact</td><td>Una frase grande y centrada. <span>.impact.claro para la versión en fondo claro.</span></td></tr>
+    <tr><td>.lista</td><td>Lista con numeración en el margen y líneas finas. <span>Cada &lt;li class="step"&gt; aparece con una pulsación.</span></td></tr>
+    <tr><td>.demo</td><td>Ejercicio práctico: número gigante, instrucción, herramientas, prompt con COPIAR y «FÍJATE».</td></tr>
+    <tr><td>.foto</td><td>Imagen a pantalla completa. <span>.contain para que no se recorte; .claro si la imagen tiene fondo blanco.</span></td></tr>
+    <tr><td>.film</td><td>Vídeo a pantalla completa que arranca solo al llegar a la diapositiva.</td></tr>
+    <tr><td>.crt-accent</td><td>El parpadeo. <span>.crt-coral para la versión en coral.</span></td></tr>
+  </table>
+</div></section>
+
+<section><div class="wrap">
+  <div class="kicker">Lo que la hace funcionar</div>
+  <h2>No es el efecto. <strong>Es la disciplina.</strong></h2>
+  <ul class="reglas">
+    <li>Una idea por diapositiva.<span>Cuarenta diapositivas para una hora es normal. Pasan rápido.</span></li>
+    <li>El texto afirma; tú explicas.<span>Si una diapositiva se entiende sin ti, sobra o eres tú quien sobra.</span></li>
+    <li>Primero el dato, luego la lectura.<span>Un número en una diapositiva y su consecuencia en la siguiente.</span></li>
+    <li>Imágenes grandes, solas, sin texto encima.<span>Para la portada, pide a la IA una imagen con la mitad izquierda vacía y oscura.</span></li>
+    <li>Revisa cada dato antes de presentar.<span>La IA maqueta muy bien y a veces se inventa cifras. La firma es tuya.</span></li>
+  </ul>
+</div></section>
+
+<section><div class="wrap">
+  <div class="kicker">Para presentar</div>
+  <h2>Con el teclado <strong>o con el mando.</strong></h2>
+  <div class="teclas">
+    <span><kbd>→</kbd> <kbd>Espacio</kbd> <kbd>AvPág</kbd> siguiente</span>
+    <span><kbd>←</kbd> <kbd>RePág</kbd> anterior</span>
+    <span><kbd>G</kbd> capítulos</span>
+    <span><kbd>F</kbd> pantalla completa</span>
+    <span><kbd>B</kbd> pantalla negra</span>
+    <span><kbd>M</kbd> sin movimiento</span>
+  </div>
+  <p class="lead">Para compartirla, basta con enviar el archivo HTML. Si lleva imágenes, pide a la IA que las incruste dentro del propio archivo (en base64) para que funcione sin conexión.</p>
+</div></section>
+
+<footer><div class="wrap">
+  Javier Fuentes · N Company · Taller de IA en cáncer de pulmón, ICO L'Hospitalet, 23 de noviembre de 2026.<br>
+  Para seguir al día: <a href="https://theindependentsentinel.substack.com" target="_blank" rel="noopener">The Independent Sentinel</a>.
+</div></footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(btn => btn.addEventListener('click', async () => {
+  const text = btn.parentElement.textContent.replace(btn.textContent, '').trim();
+  try { await navigator.clipboard.writeText(text); }
+  catch { const t = document.createElement('textarea'); t.value = text; document.body.append(t); t.select(); document.execCommand('copy'); t.remove(); }
+  btn.textContent = 'COPIADO'; btn.classList.add('ok');
+  setTimeout(() => { btn.textContent = 'COPIAR'; btn.classList.remove('ok'); }, 1600);
+}));
+</script>
+</body>
+</html>
